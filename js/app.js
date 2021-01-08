@@ -1,98 +1,21 @@
-// Work to get the filter buttons working
-(function(){
-    // const buttons = document.querySelectorAll('.btn')
-    // const storeItems = document.querySelectorAll('.store-item')
-    //console.log(buttons)
-    // buttons.forEach(function(button){
-    //     button.addEventListener('click', function(e){
-    //         //prevent the default link jump to top of page
-    //         e.preventDefault()
-    //         //grab the filter button that was clicked
-    //         const filter = e.target.dataset.filter
-    //         if (filter === 'all'){
-    //             //show all items
-    //             storeItems.forEach(function(item){
-    //                 item.style.display = 'block'
-    //             })
-    //         } else if (filter === 'cakes'){
-    //             storeItems.forEach(function(item){
-    //                 if (item.classList.contains('cakes')){
-    //                     item.style.display = 'block'
-    //                 } else {
-    //                     item.style.display = 'none'
-    //                 }
-    //             })
-    //         } else if (filter === 'cupcakes'){
-    //             storeItems.forEach(function(item){
-    //                 if (item.classList.contains('cupcakes')){
-    //                     item.style.display = 'block'
-    //                 } else {
-    //                     item.style.display = 'none'
-    //                 }
-    //             })
-    //         } else if (filter === 'sweets'){
-    //             storeItems.forEach(function(item){
-    //                 if (item.classList.contains('sweets')){
-    //                     item.style.display = 'block'
-    //                 } else {
-    //                     item.style.display = 'none'
-    //                 }
-    //             })
-    //         } else if (filter === 'doughnuts'){
-    //             storeItems.forEach(function(item){
-    //                 if (item.classList.contains('doughnuts')){
-    //                     item.style.display = 'block'
-    //                 } else {
-    //                     item.style.display = 'none'
-    //                 }
-    //             })
-    //         }
-    //     })
-    // })
+(function() {
+const filterBtns = document.querySelectorAll('.filter-btn');
+const items = document.querySelectorAll('.store-item');
 
-    // refactor to get rid of DRY code
-    const buttons = document.querySelectorAll('.btn')
-    const storeItems = document.querySelectorAll('.store-item')
+filterBtns.forEach(function(button) {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const filter = e.target.dataset.filter;
 
-    buttons.forEach((button)=> {
-        button.addEventListener('click', (e) => {
-            e.preventDefault()
-            const filter = e.target.dataset.filter
-            
-            storeItems.forEach((item)=> {
-                if (filter === 'all'){
-                    item.style.display = 'block'
-                } else {
-                    if (item.classList.contains(filter)){
-                        item.style.display = 'block'
-                    } else {
-                        item.style.display = 'none'
-                    }
-                }
-            })
-        })
-    })
-
-})();
-
-//wire up filter search box
-(function(){
-
-    const searchBox = document.querySelector('#search-item')
-    const storeItems = document.querySelectorAll('.store-item')
-
-    searchBox.addEventListener('keyup', (e) => {
-    
-        const searchFilter = e.target.value.toLowerCase().trim()
-        //display only items that contain filter input
-
-        storeItems.forEach((item) => {
-            if (item.textContent.includes(searchFilter)){
-                item.style.display = 'block'
+        items.forEach(function(item) {
+            if (filter === 'all') {
+                item.style.display = 'block';
+            } else if (item.classList.contains(filter)) {
+                item.style.display = 'block';
             } else {
-                item.style.display = 'none'
-            }
-        })
-    })
-
+                item.style.display = 'none';
+            };
+        });
+    });
+});
 })();
