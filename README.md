@@ -1,5 +1,5 @@
 # Filter-Project
-from JS-Beginners at https://github.com/JS-Beginners/mortgage-loan-calculator.git
+Idea from JS-Beginners at https://github.com/JS-Beginners/mortgage-loan-calculator.git
 
 HTML&CSS not mine. I wrote the code in app.js after viewing the solution.
 
